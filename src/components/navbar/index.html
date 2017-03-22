@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand">ECG</a>
+    <ul class="nav navbar-nav">
+      <li data-id="home" ng-if="controller==='cases'" data-toggle="modal" data-target="#modal_case_new"><a><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
+      </li>
+      <li data-id="home" ng-if="controller!=='cases'"><a ui-sref="cases({type: 'all'})"><span class="glyphicon glyphicon-chevron-left"></span> 返回病例中心</a>
+      </li>
+    </ul>
+    <div class="personal dropdown pull-right">
+      <a class="avator dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="navbarDrop1">
+        <span class="glyphicon glyphicon-user"></span>
+        <span>动态血压</span>
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDrop1">
+        <li><a href="#">欢迎您！</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a ui-sref="cases({type:'all'})">病例中心</a></li>
+        <li><a ui-sref="setting">用户设置</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

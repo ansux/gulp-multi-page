@@ -8,6 +8,7 @@ const autoprefixer = require('gulp-autoprefixer')
 const cssnano = require('gulp-cssnano')
 
 const htmlmin = require('gulp-htmlmin')
+const imagemin = require('gulp-imagemin')
 
 const clean = require('gulp-clean')
 const rename = require('gulp-rename')
@@ -26,15 +27,20 @@ const files = {
   pages: ['login', 'cases', 'setting']
 }
 
-/* task-clean */
-gulp.task('clean', () => {
-  return gulp.src('dist', {
-    read: false
-  }).pipe(clean())
-})
+
 
 /* task */
 const task = {
+  eslint() {
+    return gulp.src(files.js)
+      .pipe(eslint())
+      .pipe(eslint.format())
+  },
+  vendor() {
+    return gulp.src(files.vendor)
+      .pipe(concat('vendor.js'))
+      .pipe(gulp.dest('dist/js'))
+  },
   js(pageName) {
     return browserify(`src/pages/${pageName}`)
       .transform(babelify)
@@ -67,21 +73,19 @@ const task = {
       .pipe(cssnano())
       .pipe(rename(`${pageName}.css`))
       .pipe(gulp.dest('dist/css'))
+  },
+  image(path) {
+    return gulp.src(path)
+      .pipe(imagemin())
+      .pipe(gulp.dest('dist/images'))
   }
 }
 
-/* task-eslint */
-gulp.task('eslint', () => {
-  return gulp.src(files.js)
-    .pipe(eslint())
-    .pipe(eslint.format())
-})
-
-/* task-vendor */
-gulp.task('vendor', () => {
-  return gulp.src(files.vendor)
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('dist/js'))
+/* task-clean */
+gulp.task('clean', () => {
+  return gulp.src('dist', {
+    read: false
+  }).pipe(clean())
 })
 
 /* task-browserSync */
@@ -109,6 +113,12 @@ gulp.task('watch', ['browserSync'], () => {
       // 根据文件后缀来判断并执行相应的任务
       task[ext](pageName)
     })
+
+  gulp.watch('src/assets/images/*.*')
+    .on('change', (e) => {
+      let filePath = e.path
+      task.image(filePath)
+    })
 })
 
 /* task-build */
@@ -118,6 +128,7 @@ gulp.task('build', sequence('clean', () => {
     task.html(v)
     task.scss(v)
   })
+  task.image('src/assets/images/*.*')
 }))
 
 /* task-default */

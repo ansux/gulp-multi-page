@@ -6,7 +6,29 @@
   <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-  <h1>这是登录页面</h1>
+  <div class="login-warper" :controller="login">
+    <div class="login-box">
+      <div class="header"></div>
+      <div class="content">
+        <div class="cover"><img src="images/login_icon.png" alt=""></div>
+        <div class="form-box">
+          <div class="input-group">
+            <label for="">帐号：</label>
+            <input type="text" id="userId" :duplex="userId">
+          </div>
+          <div class="input-group">
+            <label for="">密码：</label>
+            <input type="password" id="password" :duplex="password">
+          </div>
+          <div class="submit-btn">
+            <button type="submit" :click="submit"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="//cdn.bootcss.com/avalon.js/2.2.4/avalon.min.js"></script>
+  <script src="//cdn.bootcss.com/axios/0.15.3/axios.min.js"></script>
   <script src="js/login.js"></script>
 </body>
 </html>

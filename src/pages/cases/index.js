@@ -1,1 +1,1 @@
-console.log('cases')
+require('../../components/navbar')
