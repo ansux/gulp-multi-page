@@ -8,9 +8,116 @@
   <link rel="stylesheet" href="css/cases.css">
 </head>
 
-<body>
+<body ms-controller="cases">
   <ms-navbar></ms-navbar>
-
+  <div class="side-wraper">
+    <ul class="side-menu">
+      <li ms-class="{'active': item.active}" ms-for="item in tabs">
+        <a ms-click="changeTab(item)">{{item.type}} ({{item.count}})</a>
+      </li>
+    </ul>
+  </div>
+  <div class="content-warper">
+    <div class="cases-list-waraper">
+      <div class="filter-warper">
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="" class="label-control">来源:</label>
+            <select class="form-control">
+                <option value="0">不限</option>
+                <option value="1">门诊</option>
+                <option value="1">住院</option>
+                <option value="1">体检</option>
+                <option value="1">急诊</option>
+                <option value="1">其他</option>
+              </select>
+          </div>
+          <div class="col-sm-3">
+            <label for="" class="label-control">性别:</label>
+            <select class="form-control">
+                <option value="0">不限</option>
+                <option value="1">男</option>
+                <option value="1">女</option>
+              </select>
+          </div>
+          <div class="col-sm-3">
+            <label for="" class="label-control">检查类型:</label>
+            <select class="form-control">
+                <option value="0">不限</option>
+                <option value="1">动态血压</option>
+                <option value="1">动态心电</option>
+                <option value="1">静态心电</option>
+              </select>
+          </div>
+          <div class="col-sm-3">
+            <label for="" class="label-control">检查医生:</label>
+            <select class="form-control">
+                <option value="0">不限</option>
+                <option value="1">苏医生</option>
+                <option value="1">李医生</option>
+                <option value="1">马医生</option>
+              </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="" class="label-control">申请科室:</label>
+            <select class="form-control">
+                <option value="0">不限</option>
+                <option value="1">门诊</option>
+                <option value="1">住院</option>
+                <option value="1">体检</option>
+                <option value="1">急诊</option>
+                <option value="1">其他</option>
+              </select>
+          </div>
+          <div class="col-sm-3">
+            <label for="" class="label-control">关键字:</label>
+            <select class="form-control">
+                <option value="0">不限</option>
+                <option value="1">男</option>
+                <option value="1">女</option>
+              </select>
+          </div>
+          <div class="col-sm-6">
+            <label for="" class="label-control">申请时间:</label>
+          </div>
+        </div>
+        <div class="toggle">展开/关闭</div>
+      </div>
+      <div class="cases-list">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>姓名</th>
+              <th>年龄</th>
+              <th>性别</th>
+              <th>申请号</th>
+              <th>检查项目</th>
+              <th>门诊号</th>
+              <th>申请科室</th>
+              <th>上传时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ms-for="item in casesList">
+              <td>{{item.Name}}</td>
+              <td>{{item.Age+item.AgeUnit}}</td>
+              <td>{{item.Sex==='M'?'男':'女'}}</td>
+              <td>{{item.AppliNO}}</td>
+              <td>{{item.ExamGroupName}}</td>
+              <td>{{item.PatientNum}}</td>
+              <td>{{item.DepartName}}</td>
+              <td>{{item.UploadDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="cases-info-warper">
+      <div class="cases-info"></div>
+    </div>
+  </div>
   <script src="//cdn.bootcss.com/avalon.js/2.2.4/avalon.min.js"></script>
   <script src="js/cases.js"></script>
 </body>

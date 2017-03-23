@@ -119,6 +119,12 @@ gulp.task('watch', ['browserSync'], () => {
       let filePath = e.path
       task.image(filePath)
     })
+  gulp.watch('src/components/*/*.*')
+    .on('change', (e) => {
+      files.pages.forEach(pageName => {
+        task.js(pageName)
+      })
+    })
 })
 
 /* task-build */

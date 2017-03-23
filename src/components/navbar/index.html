@@ -2,9 +2,11 @@
   <div class="container-fluid">
     <a class="navbar-brand">ECG</a>
     <ul class="nav navbar-nav">
-      <li data-id="home" ng-if="controller==='cases'" data-toggle="modal" data-target="#modal_case_new"><a><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
+      <li>
+        <a><span class="glyphicon glyphicon-plus"></span> 新建病例</a>
       </li>
-      <li data-id="home" ng-if="controller!=='cases'"><a ui-sref="cases({type: 'all'})"><span class="glyphicon glyphicon-chevron-left"></span> 返回病例中心</a>
+      <li>
+        <a><span class="glyphicon glyphicon-equalizer"></span> 学术研究</a>
       </li>
     </ul>
     <div class="personal dropdown pull-right">
@@ -16,8 +18,8 @@
       <ul class="dropdown-menu" aria-labelledby="navbarDrop1">
         <li><a href="#">欢迎您！</a></li>
         <li role="separator" class="divider"></li>
-        <li><a ui-sref="cases({type:'all'})">病例中心</a></li>
-        <li><a ui-sref="setting">用户设置</a></li>
+        <li><a><span class="glyphicon glyphicon-cog"></span> 设置中心</a></li>
+        <li><a><span class="glyphicon glyphicon-off"></span> 退出登录</a></li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,118 @@
+.navbar {
+  .navbar-brand {
+    width: 210px;
+    color: #333;
+    background-color: #ddd;
+    .glyphicon {
+      font-size: 22px;
+      float: left;
+      margin-right: 8px;
+    }
+  }
+  .personal {
+    width: auto;
+    .avator {
+      color: #666;
+      float: right;
+      line-height: 50px;
+      text-decoration: none;
+      .glyphicon-user {
+        top: 3px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.side-wraper {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  width: 210px;
+  background-color: #efefef;
+  .side-menu {
+    margin-top: 10px;
+    padding-left: 0;
+    border-top: solid 1px #ddd;
+    list-style: none;
+    li {
+      border-bottom: solid 1px #ddd;
+      &.active {
+        background-color: #fff;
+        a {
+          color: #333;
+        }
+      }
+      a {
+        display: block;
+        padding: 15px 20px;
+        font-size: 15px;
+        text-decoration: none;
+        color: #999;
+        cursor: pointer;
+        &:hover {
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
+.content-warper {
+  margin-top: 50px;
+  margin-left: 210px;
+  padding: 20px;
+  .cases-list-waraper {
+    width: 75%;
+    float: left;
+  }
+  .filter-warper {
+    position: relative;
+    padding: 10px;
+    border: solid 1px #e7e7e7;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    .toggle {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      border-top: solid 1px #e7e7e7;
+      border-left: solid 1px #e7e7e7;
+      width: 80px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+    }
+    .row:first-child {
+      margin-bottom: 10px;
+    }
+    label {
+      display: inline-block;
+      width: 30%;
+      margin-right: 10px;
+      font-weight: normal;
+      white-space: nowrap;
+      word-break: keep-all;
+    }
+    select {
+      display: inline-block;
+      width: 60%;
+    }
+  }
+  .cases-list {
+    padding: 10px;
+    border: solid 1px #e7e7e7;
+    background-color: #f5f5f5;
+  }
+  .cases-info-warper {
+    float: right;
+    padding-left: 10px;
+    width: 25%;
+    height: 500px;
+    .cases-info {
+      width: 100%;
+      height: 100%;
+      background: red;
+    }
+  }
+}
